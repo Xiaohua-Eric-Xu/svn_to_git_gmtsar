@@ -12,6 +12,7 @@ git svn clone --trunk=/trunk --branches=/branches --tags=/tags svn://gmtserver.s
 ### Turn to bash, and rename the branches, and tags, etc
 
 for t in $(git for-each-ref --format='%(refname:short)' refs/remotes/tags); do git tag ${t/tags\//} $t && git branch -D -r $t; done
+
 for b in $(git for-each-ref --format='%(refname:short)' refs/remotes); do git branch $b refs/remotes/$b && git branch -D -r $b; done
 
 ### Delete or rename branches
